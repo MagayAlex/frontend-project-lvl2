@@ -1,0 +1,30 @@
+{
+  "name": "frontend-project-lvl2",
+  "version": "1.0.0",
+  "description": "2nd project in frontend developers course by Hexlet.io",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "gendiff": "src/bin/gendiff.js",
+    "test": "test.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MagayAlex/frontend-project-lvl2.git"
+  },
+  "author": "Magay Alexander",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MagayAlex/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/MagayAlex/frontend-project-lvl2#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "commander": "^5.0.0"
+  }
+}
