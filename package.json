@@ -2,8 +2,8 @@
   "name": "frontend-project-lvl2",
   "version": "1.0.0",
   "description": "2nd project in frontend developers course by Hexlet.io",
-  "type": "module",
   "main": "src/index.js",
+  "type": "module",
   "bin": {
     "gendiff": "src/bin/gendiff.js",
     "test": "test.js"
@@ -21,10 +21,14 @@
     "url": "https://github.com/MagayAlex/frontend-project-lvl2/issues"
   },
   "homepage": "https://github.com/MagayAlex/frontend-project-lvl2#readme",
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^5.0.0",
+    "file-system": "^2.2.2",
+    "lodash": "^4.17.15",
+    "path": "^0.12.7"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "commander": "^5.0.0"
+    "@babel/core": "^7.8.7"
   }
 }
