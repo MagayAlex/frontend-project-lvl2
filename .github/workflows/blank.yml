@@ -20,5 +20,5 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Run a eslinter
-      run: echo "Hello, world!"
+      run: make lint
 
