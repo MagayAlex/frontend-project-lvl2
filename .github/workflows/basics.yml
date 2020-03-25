@@ -19,7 +19,7 @@ jobs:
       - run: make install
       - run: npm test
 
-  test:
+  linter:
     runs-on: ubuntu-16.04
     strategy:
       matrix:
@@ -32,4 +32,4 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm install
-      - run: npm test
+      - run: make lint
