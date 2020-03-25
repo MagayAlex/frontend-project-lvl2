@@ -9,17 +9,12 @@ on:
 
 
 jobs:
-  linter:
+  build and test:
     runs-on: ubuntu-latest
     steps:
-    - name: Git clone my repo
-      uses: actions/checkout@v1
-    - name: Use Node.js
-      uses: action/setup-node@v1
-    - name: test start
-      run: npm test
-    - name: npm install
-      run: make install
-    - name: Run test
-      run: npm test 
-
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - run: npm install
+      - run: npm test
