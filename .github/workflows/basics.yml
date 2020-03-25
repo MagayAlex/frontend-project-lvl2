@@ -18,3 +18,4 @@ jobs:
           node-version: '10.x'
       - run: make install
       - run: npm test
+      - run: mke lint
