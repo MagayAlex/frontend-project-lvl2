@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: my-basics
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+
+jobs:
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Git clone my repo
+      uses: actions/checkout@v1
+    - name: test start
+      run: npm test
+
