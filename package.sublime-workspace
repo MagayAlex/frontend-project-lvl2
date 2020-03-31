@@ -1,0 +1,344 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pa",
+				"parse"
+			],
+			[
+				"file",
+				"filePath"
+			],
+			[
+				"e",
+				"extname"
+			],
+			[
+				"re",
+				"result"
+			],
+			[
+				"ex",
+				"expected"
+			],
+			[
+				"par",
+				"parser"
+			],
+			[
+				"parsedj",
+				"parsedJSON1"
+			],
+			[
+				"c",
+				"console"
+			],
+			[
+				"co",
+				"const"
+			],
+			[
+				"pars",
+				"parsedResult"
+			],
+			[
+				"get",
+				"getFixturePath"
+			],
+			[
+				"ge",
+				"getFixturePath"
+			],
+			[
+				"parsed",
+				"parsedJSON1"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"te",
+				"tempAcc"
+			],
+			[
+				"fil",
+				"file2Path"
+			],
+			[
+				"fi",
+				"filePath"
+			],
+			[
+				"path",
+				"pathToFile1"
+			],
+			[
+				"p",
+				"pathToFile1"
+			],
+			[
+				"js",
+				"json1keys"
+			],
+			[
+				"j",
+				"jsonArray2"
+			],
+			[
+				"jso",
+				"jsonArray"
+			],
+			[
+				"parse",
+				"parsedJSON1"
+			],
+			[
+				"ar",
+				"args"
+			],
+			[
+				"k",
+				"key"
+			],
+			[
+				"is",
+				"isEqual"
+			],
+			[
+				"fo",
+				"format"
+			],
+			[
+				"cmd",
+				"cmdValue"
+			],
+			[
+				"pro",
+				"program"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/alex/frontend-project-lvl2/__fixtures__/before.json",
+		"/home/alex/frontend-project-lvl2/Makefile",
+		"/home/alex/frontend-project-lvl2/__fixtures__/after.json",
+		"/home/alex/frontend-project-lvl2/__fixtures__/after.ini",
+		"/home/alex/frontend-project-lvl2/__fixtures__/before.ini",
+		"/home/alex/frontend-project-lvl2/README.md",
+		"/home/alex/frontend-project-lvl2/__fixtures__/before.yaml",
+		"/home/alex/frontend-project-lvl2/__fixtures__/result.txt",
+		"/home/alex/frontend-project-lvl2/__fixtures__/test.txt",
+		"/home/alex/frontend-project-lvl2/__fixtures__/1.yaml",
+		"/home/alex/frontend-project-lvl2/babel.config.js",
+		"/home/alex/frontend-project-lvl2/__fixtures__/3.txt",
+		"/home/alex/frontend-project-lvl2/__fixtures__/2.yaml",
+		"/home/alex/frontend-project-lvl2/__fixtures__/3.yaml",
+		"/home/alex/frontend-project-lvl2/.eslintrc.yml",
+		"/home/alex/frontend-project-lvl2/__fixtures__/after.yaml",
+		"/home/alex/frontend-project-lvl2/__fixtures__/result.json",
+		"/home/alex/frontend-project-lvl2/src/bin/gendiff.js",
+		"/home/alex/frontend-project-lvl2/src/index.js",
+		"/home/alex/frontend-project-lvl2/dist/index.js",
+		"/home/alex/frontend-project-lvl2/test-json/before.json",
+		"/home/alex/frontend-project-lvl2/test-json/after.json",
+		"/home/alex/frontend-project-lvl2/test-json/test2.json",
+		"/home/alex/frontend-project-lvl2/src/file1.json",
+		"/home/alex/frontend-project-lvl2/src/file2.json",
+		"/home/alex/frontend-project-lvl2/test-json/test.json",
+		"/home/alex/frontend-project-lvl2/src/file.json",
+		"/home/alex/frontend-project-lvl2/node_modules/file-system/README.md",
+		"/home/alex/frontend-project-lvl2/dist/bin/gendiff.js",
+		"/home/alex/frontend-project-lvl2/node_modules/lodash/_baseEach.js",
+		"/home/alex/frontend-project-lvl2/data/test.json",
+		"/home/alex/frontend-project-lvl2/node_modules/commander/Readme.md",
+		"/home/alex/frontend-project-lvl2/node_modules/lodash.isequal/README.md",
+		"/usr/bin/env",
+		"/home/alex/frontend-project-lvl2/test.js",
+		"/home/alex/frontend-project-lvl2/src/bin/package-lock.json",
+		"/home/alex/frontend-project-lvl2/test-compiled.js",
+		"/home/alex/frontend-project-lvl2/index.js",
+		"/home/alex/hexlet-jest/Makefile",
+		"/home/alex/hexlet-jest/package.json",
+		"/home/alex/hexlet-jest/.travis.yml",
+		"/home/alex/hexlet-jest/README.md",
+		"/home/alex/hexlet-jest/babel.config.js",
+		"/home/alex/hexlet-jest/package-lock.json",
+		"/home/alex/hexlet-jest/src/index.js",
+		"/home/alex/hexlet-jest/__tests__/index.test.js",
+		"/home/alex/projects/smallTalkWithHexlet/package.json",
+		"/home/alex/test/_posts/2020-02-20-welcome-to-jekyll (copy).markdown",
+		"/home/alex/myblog/_posts/2020-02-17-welcome-to-jekyll.markdown",
+		"/home/alex/projects/smallTalkWithHexlet/sayHi.js",
+		"/home/alex/projects/smallTalkWithHexlet/sayBye.js",
+		"/home/alex/hexlet_clone/nodejs-package/src/index-compiled.js"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "package.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
