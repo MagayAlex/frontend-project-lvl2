@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2F%2FMagayAlex%2Ffrontend-project-lvl2%2Fbadge&style=flat)](https://actions-badge.atrox.dev//MagayAlex/frontend-project-lvl2/goto)
+
 #2nd project of course 'Frontend JS'
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0bf9c39e3012f26c43e0/maintainability)](https://codeclimate.com/github/MagayAlex/frontend-project-lvl2/maintainability)
