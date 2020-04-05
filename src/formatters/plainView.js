@@ -34,10 +34,4 @@ const plainView = (data) => {
   console.log(x);
   return x;
 };
-
 export default plainView;
-
-
-/*
-
-*/
