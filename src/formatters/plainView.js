@@ -3,20 +3,20 @@ import lodash from 'lodash';
 const {
   flattenDeep,
 } = lodash;
+const getValue = (x) => {
+  switch (typeof x) {
+    case 'string':
+      return `'${x}'`;
+    case 'boolean':
+      return `${x}`;
+    case 'number':
+      return `${x}`;
+    default:
+      return '[complex value]';
+  }
+};
 
 const plainView = (data) => {
-  const getValue = (x) => {
-    switch (typeof x) {
-      case 'string':
-        return `'${x}'`;
-      case 'boolean':
-        return `${x}`;
-      case 'number':
-        return `${x}`;
-      default:
-        return '[complex value]';
-    }
-  };
   const result = (astTree, acc) => astTree.map((node) => {
     if (node.children) {
       return result(node.children, [...acc, node.key]);
