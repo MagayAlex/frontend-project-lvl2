@@ -15,23 +15,20 @@ const getValue = (x) => {
       return '[complex value]';
   }
 };
-
-const plainView = (data) => {
-  const result = (astTree, acc) => astTree.map((node) => {
-    if (node.children) {
-      return result(node.children, [...acc, node.key]);
-    }
-    switch (node.atr) {
-      case 'changed':
-        return `Property '${[...acc, node.key].join('.')}' was changed from ${getValue(node.oldValue)} to ${getValue(node.newValue)}`;
-      case 'deleted':
-        return `Property '${[...acc, node.key].join('.')}' was deleted`;
-      case 'added':
-        return `Property '${[...acc, node.key].join('.')}' was added with value: ${getValue(node.value)}`;
-      default:
-        return [];
-    }
-  });
-  return flattenDeep(result(data, [])).join('\n');
-};
+const getAstTree = (astTree, acc) => astTree.map((node) => {
+  if (node.children) {
+    return getAstTree(node.children, [...acc, node.key]);
+  }
+  switch (node.atr) {
+    case 'changed':
+      return `Property '${[...acc, node.key].join('.')}' was changed from ${getValue(node.oldValue)} to ${getValue(node.newValue)}`;
+    case 'deleted':
+      return `Property '${[...acc, node.key].join('.')}' was deleted`;
+    case 'added':
+      return `Property '${[...acc, node.key].join('.')}' was added with value: ${getValue(node.value)}`;
+    default:
+      return [];
+  }
+});
+const plainView = (data) => flattenDeep(getAstTree(data, [])).join('\n');
 export default plainView;
