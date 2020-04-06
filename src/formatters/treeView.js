@@ -2,10 +2,12 @@ const treeView = (data) => {
   const render = (obj, counter = 0) => {
     const tab = '    ';
     const stringify = (x) => {
-      if (typeof x === 'object') {
+      const temp = `{\n${tab.repeat(counter + 2)}${Object.entries(x).map(([key, value]) => `${key}: ${value}`).join()}\n${tab.repeat(counter + 1)}}`;
+      return typeof x === 'object' ? temp : `${x}`;
+       /*if (typeof x === 'object') {
         return `{\n${tab.repeat(counter + 2)}${Object.entries(x).map(([key, value]) => `${key}: ${value}`).join()}\n${tab.repeat(counter + 1)}}`;
       }
-      return `${x}`;
+      return `${x}`; */
     };
     const atr = (x) => {
       if (x === 'unchanged' || x === 'changed') {
