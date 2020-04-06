@@ -4,7 +4,7 @@ const treeView = (data) => {
     const stringify = (x) => {
       const temp = `{\n${tab.repeat(counter + 2)}${Object.entries(x).map(([key, value]) => `${key}: ${value}`).join()}\n${tab.repeat(counter + 1)}}`;
       return typeof x === 'object' ? temp : `${x}`;
-       /*if (typeof x === 'object') {
+      /* if (typeof x === 'object') {
         return `{\n${tab.repeat(counter + 2)}${Object.entries(x).map(([key, value]) => `${key}: ${value}`).join()}\n${tab.repeat(counter + 1)}}`;
       }
       return `${x}`; */

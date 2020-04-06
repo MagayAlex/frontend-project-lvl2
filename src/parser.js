@@ -11,16 +11,16 @@ const {
 const parser = (file) => {
   const filePath = path.resolve(process.cwd(), file);
   const data = fs.readFileSync(filePath, 'utf8');
-  if (path.extname(file) === '.json') {
-    return JSON.parse(data);
+  switch (path.extname(file)) {
+    case '.json':
+      return JSON.parse(data);
+    case '.yaml':
+      return yaml.load(data);
+    case '.ini':
+      return ini.parse(data);
+    default:
+      throw new Error(`Unknown file type: '${file}'!`);
   }
-  if (path.extname(file) === '.yaml') {
-    return yaml.load(data);
-  }
-  if (path.extname(file) === '.ini') {
-    return ini.parse(data);
-  }
-  return 'Error: wrong file extension';
 };
 const getAst = (data1, data2) => {
   const uniqueKeys = uniq([...Object.keys(data1), ...Object.keys(data2)]).sort();
