@@ -29,9 +29,6 @@ const plainView = (data) => {
     }
     return [];
   });
-  const x = flattenDeep(result(data, [])).join('\n');
-  console.log('Result:');
-  console.log(x);
-  return x;
+  return flattenDeep(result(data, [])).join('\n');
 };
 export default plainView;

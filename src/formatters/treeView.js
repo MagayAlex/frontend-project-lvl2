@@ -28,8 +28,6 @@ const treeView = (data) => {
   };
   const rendered = (tree) => tree.reduce((acc, node) => `${acc}${render(node, 0)}`, '');
   const x = rendered(data);
-  console.log('Result');
-  console.log(`{${x}\n}`);
   return `{${x}\n}`;
 };
 
