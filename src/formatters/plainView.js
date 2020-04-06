@@ -18,19 +18,19 @@ const plainView = (data) => {
     }
   };
   const result = (astTree, acc) => astTree.map((node) => {
-    if (node.atr === 'changed') {
-      return `Property '${[...acc, node.key].join('.')}' was changed from ${getValue(node.oldValue)} to ${getValue(node.newValue)}`;
-    }
-    if (node.atr === 'deleted') {
-      return `Property '${[...acc, node.key].join('.')}' was deleted`;
-    }
-    if (node.atr === 'added') {
-      return `Property '${[...acc, node.key].join('.')}' was added with value: ${getValue(node.value)}`;
-    }
     if (node.children) {
       return result(node.children, [...acc, node.key]);
     }
-    return [];
+    switch (node.atr) {
+      case 'changed':
+        return `Property '${[...acc, node.key].join('.')}' was changed from ${getValue(node.oldValue)} to ${getValue(node.newValue)}`;
+      case 'deleted':
+        return `Property '${[...acc, node.key].join('.')}' was deleted`;
+      case 'added':
+        return `Property '${[...acc, node.key].join('.')}' was added with value: ${getValue(node.value)}`;
+      default:
+        return [];
+    }
   });
   return flattenDeep(result(data, [])).join('\n');
 };
