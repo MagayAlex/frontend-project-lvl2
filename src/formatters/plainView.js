@@ -6,13 +6,16 @@ const {
 
 const plainView = (data) => {
   const getValue = (x) => {
-    if (typeof x === 'string') {
-      return `'${x}'`;
+    switch (typeof x) {
+      case 'string':
+        return `'${x}'`;
+      case 'boolean':
+        return `${x}`;
+      case 'number':
+        return `${x}`;
+      default:
+        return '[complex value]';
     }
-    if (typeof x === 'boolean' || typeof x === 'number') {
-      return `${x}`;
-    }
-    return '[complex value]';
   };
   const result = (astTree, acc) => astTree.map((node) => {
     if (node.atr === 'changed') {
