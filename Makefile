@@ -8,3 +8,5 @@ lint:
 	npx eslint .
 test:
 	npm test
+build:
+	npm run build
