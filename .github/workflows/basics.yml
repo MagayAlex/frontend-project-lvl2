@@ -6,8 +6,6 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -18,7 +16,6 @@ jobs:
           node-version: '10.x'
       - run: make install
       - run: npm test
-
   linter:
     runs-on: ubuntu-16.04
     strategy:
