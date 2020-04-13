@@ -30,5 +30,5 @@ const getAstTree = (astTree, acc) => astTree.map((node) => {
       return [];
   }
 });
-const plainView = (data) => flattenDeep(getAstTree(data, [])).join('\n');
-export default plainView;
+const buildPlainView = (data) => flattenDeep(getAstTree(data, [])).join('\n');
+export default buildPlainView;

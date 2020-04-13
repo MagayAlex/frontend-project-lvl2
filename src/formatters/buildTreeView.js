@@ -23,9 +23,9 @@ const render = (obj, counter = 0) => {
   }
   return `\n${tab.repeat(counter)}${atr(obj.atr)}${obj.key}: ${stringify(obj.value)}`;
 };
-const treeView = (data) => {
+const buildTreeView = (data) => {
   const x = data.reduce((acc, node) => `${acc}${render(node, 0)}`, '');
   return `{${x}\n}`;
 };
 
-export default treeView;
+export default buildTreeView;

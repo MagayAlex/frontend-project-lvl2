@@ -1,16 +1,16 @@
-import treeView from './treeView.js';
-import plainView from './plainView.js';
-import jsonView from './jsonView.js';
+import buildTreeView from './buildTreeView.js';
+import buildPlainView from './buildPlainView.js';
+import buildJsonView from './buildJsonView.js';
 
 export default (data, type) => {
   if (type === 'tree') {
-    return treeView(data);
+    return buildTreeView(data);
   }
   if (type === 'plain') {
-    return plainView(data);
+    return buildPlainView(data);
   }
   if (type === 'json') {
-    return jsonView(data);
+    return buildJsonView(data);
   }
   return 'error: unsupported type';
 };
