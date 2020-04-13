@@ -1,12 +1,8 @@
 import yaml from 'js-yaml';
 import ini from 'ini';
-import fs from 'fs';
-import path from 'path';
 
-export default (file) => {
-  const filePath = path.resolve(process.cwd(), file);
-  const data = fs.readFileSync(filePath, 'utf8');
-  switch (path.extname(file)) {
+export default (data, extName) => {
+  switch (extName) {
     case '.json':
       return JSON.parse(data);
     case '.yaml':
@@ -14,6 +10,6 @@ export default (file) => {
     case '.ini':
       return ini.parse(data);
     default:
-      throw new Error(`Unknown file type: '${file}'!`);
+      throw new Error(`Unknown file type: '${extName}'!`);
   }
 };
