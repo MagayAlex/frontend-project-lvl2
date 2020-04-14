@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import parse from './parse.js';
 import buildAst from './buildAst.js';
-import format from './formatters';
+import format from './format';
 
 const data = (pathToFile) => fs.readFileSync(path.resolve(process.cwd(), pathToFile), 'utf8');
 const genDiff = (pathToFile1, pathToFile2, type = 'json') => {
