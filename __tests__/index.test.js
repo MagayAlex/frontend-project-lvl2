@@ -5,7 +5,7 @@ import genDiff from '../src/index.js';
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 const arr = ['json', 'yaml', 'ini'];
-test.each(arr)('test %#', (etxtention) => {
+test.each(arr)('test %%%', (etxtention) => {
   const fileBefore = getFixturePath(`beforeTree.${etxtention}`);
   const fileAfter = getFixturePath(`afterTree.${etxtention}`);
   expect(genDiff(fileBefore, fileAfter, 'tree')).toEqual(readFile('resultTree.txt'));
