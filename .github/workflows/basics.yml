@@ -1,38 +1,19 @@
-# This is a basic workflow to help you get started with Actions
+# Name of workflow
+name: Node CI
 
-name: my-basics
+# Trigger the workflow on push or pull request
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+  - push
+  - pull_request
+
 jobs:
-  build-and-test:
+  build:
+
+    # The type of machine to run the job on
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '10.x'
-      - run: make install
-      - run: npm test
-  linter:
-    runs-on: ubuntu-16.04
+
     strategy:
-      matrix:
-        node: [ '10', '8' ]
-    name: Node ${{ matrix.node }} sample
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node }}
-      - run: npm install
-      - run: make lint
-  test-coverage:
-    runs-on: ubuntu-latest
-    strategy:
+      # Node versions list
       matrix:
         node-version: [13.x]
 
@@ -66,7 +47,7 @@ jobs:
         uses: paambaati/codeclimate-action@v2.4.0
         # Add Code Climate secret key
         env:
-          CC_TEST_REPORTER_ID: b2a28e99ff080661609d03cdaf1f083d07bf8f0ef3da663d95cde6a411404837
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: make test-coverage
           debug: true
