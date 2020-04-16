@@ -15,6 +15,13 @@ jobs:
           node-version: '10.x'
       - run: make install
       - run: npm test
+      - uses: paambaati/codeclimate-action@v2.4.0
+        # Add Code Climate secret key
+        env:
+          CC_TEST_REPORTER_ID: b2a28e99ff080661609d03cdaf1f083d07bf8f0ef3da663d95cde6a411404837
+        with:
+          coverageCommand: make test-coverage
+          debug: true
   linter:
     runs-on: ubuntu-16.04
     strategy:
