@@ -5,11 +5,12 @@ import genDiff from '../src/index.js';
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 const arr = [['tree', 'resultTree.txt'], ['plain', 'resultPlain.txt'], ['json', 'resultJson.txt']];
-const arrOfData = [['beforeTree.json', 'afterTree.json'], ['beforeTree.ini', 'afterTree.ini'], ['beforeTree.yaml', 'afterTree.yaml']];
+
+const arrOfExtentions = ['.json', '.yaml', '.ini'];
 test.each(arr)('test %#', (type, result) => {
-  console.log(`test ${type} files`);
-  arrOfData.forEach((element) => {
-    const [before, after] = element;
+  arrOfExtentions.forEach((etxtention) => {
+    const before = `beforeTree${etxtention}`;
+    const after = `afterTree${etxtention}`;
     const file1 = getFixturePath(before);
     const file2 = getFixturePath(after);
     const expected = readFile(result);
