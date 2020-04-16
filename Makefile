@@ -11,4 +11,4 @@ test:
 build:
 	npm run build
 test-coverage:
-	npx jest --coverage
+	npm test -- --coverage
