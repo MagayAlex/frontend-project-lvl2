@@ -8,7 +8,7 @@ const buildAst = (data1, data2) => {
     }
     if (!has(data1, key)) {
       return [...acc, { status: 'added', key, value: data2[key] }];
-    }    
+    }
     if (typeof data1[key] === 'object' && typeof data2[key] === 'object') {
       return [...acc, { status: 'nested', key, children: buildAst(data1[key], data2[key]) }];
     }
