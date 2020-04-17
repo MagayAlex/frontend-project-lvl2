@@ -19,7 +19,7 @@ const getAstTree = (astTree, acc) => astTree.map((node) => {
   if (node.children) {
     return getAstTree(node.children, [...acc, node.key]);
   }
-  switch (node.atr) {
+  switch (node.status) {
     case 'changed':
       return `Property '${[...acc, node.key].join('.')}' was changed from ${getValue(node.oldValue)} to ${getValue(node.newValue)}`;
     case 'deleted':
