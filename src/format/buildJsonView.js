@@ -1,1 +1,1 @@
-export default (data) => JSON.stringify(data);// , (key, value) => isNumber(value));
+export default (data) => JSON.stringify(data);
