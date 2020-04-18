@@ -5,7 +5,7 @@ import buildAst from './buildAst.js';
 import format from './format';
 
 const readFile = (pathToFile) => fs.readFileSync(path.resolve(process.cwd(), pathToFile), 'utf8');
-const getData = (pathToFile) => parse(readFile(pathToFile), path.extname(pathToFile));
+const getData = (pathToFile) => parse(readFile(pathToFile), pathToFile.split('.').pop());
 const genDiff = (pathToFile1, pathToFile2, type = 'json') => {
   const parsedFile1 = getData(pathToFile1);
   const parsedFile2 = getData(pathToFile2);
