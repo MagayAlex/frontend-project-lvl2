@@ -2,16 +2,16 @@ import yaml from 'js-yaml';
 import ini from 'ini';
 
 const isNumber = (n) => {
-  if (!Number.isNaN(parseFloat(n)) && !Number.isNaN(n - 0)) {
-    return parseInt(n, 10);
+  if (!Number.isNaN(parseFloat(n))) {
+    return parseFloat(n);
   }
   return n;
 };
-const iniFix = (obj) => {
+const iniFixNumbers = (obj) => {
   const entries = Object.entries(obj);
   return entries.reduce((acc, [key, value]) => {
     if (value instanceof Object) {
-      return { ...acc, [key]: iniFix(value) };
+      return { ...acc, [key]: iniFixNumbers(value) };
     }
     return { ...acc, [key]: isNumber(value) };
   }, {});
@@ -24,7 +24,7 @@ export default (data, extName) => {
     case '.yaml':
       return yaml.load(data);
     case '.ini':
-      return iniFix(ini.parse(data));
+      return iniFixNumbers(ini.parse(data));
     default:
       throw new Error(`Unknown file type: '${extName}'!`);
   }
