@@ -17,15 +17,15 @@ const iniFixNumbers = (obj) => {
   }, {});
 };
 
-export default (data, extName) => {
-  switch (extName) {
-    case '.json':
+export default (data, type) => {
+  switch (type) {
+    case 'json':
       return JSON.parse(data);
-    case '.yaml':
+    case 'yaml':
       return yaml.load(data);
-    case '.ini':
+    case 'ini':
       return iniFixNumbers(ini.parse(data));
     default:
-      throw new Error(`Unknown file type: '${extName}'!`);
+      throw new Error(`Unknown file type: '${type}'!`);
   }
 };
