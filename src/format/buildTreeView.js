@@ -1,6 +1,6 @@
 const tab = '    ';
 const status = (x) => {
-  if (x === 'nested' || x === 'changed') {
+  if (x === 'nested' || x === 'changed' || x === 'unchanged') {
     return tab;
   }
   if (x === 'added') {
