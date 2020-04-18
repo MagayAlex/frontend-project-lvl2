@@ -1,7 +1,7 @@
 import yaml from 'js-yaml';
 import ini from 'ini';
 
-const isNumber = (n) => {
+const toNumber = (n) => {
   if (!Number.isNaN(parseFloat(n))) {
     return parseFloat(n);
   }
@@ -13,7 +13,7 @@ const iniFixNumbers = (obj) => {
     if (value instanceof Object) {
       return { ...acc, [key]: iniFixNumbers(value) };
     }
-    return { ...acc, [key]: isNumber(value) };
+    return { ...acc, [key]: toNumber(value) };
   }, {});
 };
 
