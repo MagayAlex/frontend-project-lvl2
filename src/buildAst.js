@@ -2,7 +2,7 @@ import { has, uniq, isObject } from 'lodash';
 
 const buildAst = (data1, data2) => {
   const uniqueKeys = uniq([...Object.keys(data1), ...Object.keys(data2)]).sort();
-  return uniqueKeys.map((key) => {
+  return uniqueKeys.flatMap((key) => {
     if (!has(data2, key)) {
       return [{ status: 'deleted', key, value: data1[key] }];
     }
@@ -19,6 +19,6 @@ const buildAst = (data1, data2) => {
     return [{
       status: 'changed', key, newValue: data2[key], oldValue: data1[key],
     }];
-  }).flat(Infinity);
+  });
 };
 export default buildAst;
