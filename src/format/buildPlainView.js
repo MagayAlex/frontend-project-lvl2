@@ -2,21 +2,16 @@ const valueToString = (nodeValue) => {
   if (typeof nodeValue === 'object') {
     return '[complex value]';
   }
-  switch (typeof nodeValue) {
-    case 'boolean':
-      return `${nodeValue}`;
-    case 'number':
-      return `${nodeValue}`;
-    default:
-      return `'${nodeValue}'`;
+  if (typeof nodeValue === 'string') {
+    return `'${nodeValue}'`;
   }
+  return String(nodeValue);
 };
 const makeDiff = (astTree, path) => astTree.map((node) => {
   const pathToProperty = [...path, node.key];
-  if (node.children) {
-    return makeDiff(node.children, pathToProperty);
-  }
   switch (node.status) {
+    case 'nested':
+      return makeDiff(node.children, pathToProperty);
     case 'changed':
       return `Property '${pathToProperty.join('.')}' was changed from ${valueToString(node.oldValue)} to ${valueToString(node.newValue)}`;
     case 'deleted':
