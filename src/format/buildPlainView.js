@@ -1,3 +1,5 @@
+import { flattenDeep } from 'lodash';
+
 const valueToString = (nodeValue) => {
   if (typeof nodeValue === 'object') {
     return '[complex value]';
@@ -22,5 +24,5 @@ const makeDiff = (astTree, path) => astTree.map((node) => {
       return [];
   }
 });
-const buildPlainView = (data) => (makeDiff(data, [])).flat(Infinity).join('\n');
+const buildPlainView = (data) => (flattenDeep(makeDiff(data, []))).join('\n');
 export default buildPlainView;
