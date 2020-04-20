@@ -1,34 +1,31 @@
-import lodash from 'lodash';
-
-const {
-  flattenDeep,
-} = lodash;
-const getValue = (x) => {
-  switch (typeof x) {
-    case 'string':
-      return `'${x}'`;
+const valueToString = (nodeValue) => {
+  if (typeof nodeValue === 'object') {
+    return '[complex value]';
+  }
+  switch (typeof nodeValue) {
     case 'boolean':
-      return `${x}`;
+      return `${nodeValue}`;
     case 'number':
-      return `${x}`;
+      return `${nodeValue}`;
     default:
-      return '[complex value]';
+      return `'${nodeValue}'`;
   }
 };
-const getAstTree = (astTree, acc) => astTree.map((node) => {
+const makeDiff = (astTree, path) => astTree.map((node) => {
+  const pathToProperty = [...path, node.key];
   if (node.children) {
-    return getAstTree(node.children, [...acc, node.key]);
+    return makeDiff(node.children, pathToProperty);
   }
   switch (node.status) {
     case 'changed':
-      return `Property '${[...acc, node.key].join('.')}' was changed from ${getValue(node.oldValue)} to ${getValue(node.newValue)}`;
+      return `Property '${pathToProperty.join('.')}' was changed from ${valueToString(node.oldValue)} to ${valueToString(node.newValue)}`;
     case 'deleted':
-      return `Property '${[...acc, node.key].join('.')}' was deleted`;
+      return `Property '${pathToProperty.join('.')}' was deleted`;
     case 'added':
-      return `Property '${[...acc, node.key].join('.')}' was added with value: ${getValue(node.value)}`;
+      return `Property '${pathToProperty.join('.')}' was added with value: ${valueToString(node.value)}`;
     default:
       return [];
   }
 });
-const buildPlainView = (data) => flattenDeep(getAstTree(data, [])).join('\n');
+const buildPlainView = (data) => (makeDiff(data, [])).flat(Infinity).join('\n');
 export default buildPlainView;
