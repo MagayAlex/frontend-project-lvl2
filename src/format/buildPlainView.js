@@ -9,20 +9,17 @@ const stringify = (nodeValue) => {
   }
   return String(nodeValue);
 };
+
 const makeDiff = (astTree, path) => astTree.map((node) => {
   const pathToProperty = [...path, node.key];
-  switch (node.status) {
-    case 'nested':
-      return makeDiff(node.children, pathToProperty);
-    case 'changed':
-      return `Property '${pathToProperty.join('.')}' was changed from ${stringify(node.oldValue)} to ${stringify(node.newValue)}`;
-    case 'deleted':
-      return `Property '${pathToProperty.join('.')}' was deleted`;
-    case 'added':
-      return `Property '${pathToProperty.join('.')}' was added with value: ${stringify(node.value)}`;
-    default:
-      return [];
-  }
+  const render = {
+    nested: () => makeDiff(node.children, pathToProperty),
+    changed: () => `Property '${pathToProperty.join('.')}' was changed from ${stringify(node.oldValue)} to ${stringify(node.newValue)}`,
+    deleted: () => `Property '${pathToProperty.join('.')}' was deleted`,
+    added: () => `Property '${pathToProperty.join('.')}' was added with value: ${stringify(node.value)}`,
+    unchanged: () => [],
+  };
+  return render[node.status]();
 });
 const buildPlainView = (data) => (flattenDeep(makeDiff(data, []))).join('\n');
 export default buildPlainView;
