@@ -1,6 +1,6 @@
 import { flattenDeep } from 'lodash';
 
-const valueToString = (nodeValue) => {
+const stringify = (nodeValue) => {
   if (typeof nodeValue === 'object') {
     return '[complex value]';
   }
@@ -15,11 +15,11 @@ const makeDiff = (astTree, path) => astTree.map((node) => {
     case 'nested':
       return makeDiff(node.children, pathToProperty);
     case 'changed':
-      return `Property '${pathToProperty.join('.')}' was changed from ${valueToString(node.oldValue)} to ${valueToString(node.newValue)}`;
+      return `Property '${pathToProperty.join('.')}' was changed from ${stringify(node.oldValue)} to ${stringify(node.newValue)}`;
     case 'deleted':
       return `Property '${pathToProperty.join('.')}' was deleted`;
     case 'added':
-      return `Property '${pathToProperty.join('.')}' was added with value: ${valueToString(node.value)}`;
+      return `Property '${pathToProperty.join('.')}' was added with value: ${stringify(node.value)}`;
     default:
       return [];
   }
