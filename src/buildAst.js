@@ -17,7 +17,6 @@ const buildAst = (data1, data2) => {
     if (data1[key] === data2[key]) {
       return [{ status: 'unchanged', key, value: data1[key] }];
     }
-
     return [{
       status: 'changed', key, newValue: data2[key], oldValue: data1[key],
     }];
