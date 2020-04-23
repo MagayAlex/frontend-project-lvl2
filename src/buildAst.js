@@ -1,10 +1,10 @@
 import {
-  has, uniq, isObject, flattenDeep,
+  has, uniq, isObject, flatten,
 } from 'lodash';
 
 const buildAst = (data1, data2) => {
   const uniqueKeys = uniq([...Object.keys(data1), ...Object.keys(data2)]).sort();
-  return flattenDeep(uniqueKeys.map((key) => {
+  return flatten(uniqueKeys.map((key) => {
     if (!has(data2, key)) {
       return [{ status: 'deleted', key, value: data1[key] }];
     }
