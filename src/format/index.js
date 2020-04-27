@@ -1,6 +1,6 @@
-import buildTreeView from './buildTreeView.js';
-import buildPlainView from './buildPlainView.js';
-import buildJsonView from './buildJsonView.js';
+import buildTreeView from './tree.js';
+import buildPlainView from './plain.js';
+import buildJsonView from './json.js';
 
 export default (data, type) => {
   if (type === 'tree') {
