@@ -1,15 +1,6 @@
-import { isObject } from 'lodash';
+import { isObject, flattenDeep } from 'lodash';
 
 const tab = '    ';
-const buildSymbol = (status) => {
-  if (status === 'added') {
-    return '  + ';
-  }
-  if (status === 'deleted') {
-    return '  - ';
-  }
-  return tab;
-};
 const makeTab = (count) => `${tab.repeat(count)}`;
 const stringify = (nodeValue, tabSize) => {
   if (isObject(nodeValue)) {
@@ -17,17 +8,18 @@ const stringify = (nodeValue, tabSize) => {
   }
   return nodeValue;
 };
-const render = (node, depth = 0) => {
-  if (node.status === 'nested') {
-    return `\n${makeTab(depth)}${buildSymbol(node.status)}${node.key}: {${node.children.map((child) => render(child, depth + 1)).join('')}\n${makeTab(depth + 1)}}`;
-  }
-  if (node.status === 'changed') {
-    return `\n${makeTab(depth)}${buildSymbol('deleted')}${node.key}: ${stringify(node.oldValue, depth)}\n${makeTab(depth)}${buildSymbol('added')}${node.key}: ${stringify(node.newValue, depth)}`;
-  }
-  return `\n${makeTab(depth)}${buildSymbol(node.status)}${node.key}: ${stringify(node.value, depth)}`;
+const mapping = {
+  nested: (node, depth, iter) => `${makeTab(depth)}${tab}${node.key}: ${iter(node.children, depth + 1)}`,
+  changed: (node, depth) => [`${makeTab(depth)}  - ${node.key}: ${stringify(node.oldValue, depth)}`,
+    `${makeTab(depth)}  + ${node.key}: ${stringify(node.newValue, depth)}`],
+  unchanged: (node, depth) => `${makeTab(depth)}${tab}${node.key}: ${stringify(node.value, depth)}`,
+  added: (node, depth) => `${makeTab(depth)}  + ${node.key}: ${stringify(node.value, depth)}`,
+  deleted: (node, depth) => `${makeTab(depth)}  - ${node.key}: ${stringify(node.value, depth)}`,
 };
-const buildTreeView = (data) => {
-  const x = data.reduce((acc, node) => `${acc}${render(node, 0)}`, '');
-  return `{${x}\n}`;
+
+const makeDiff = (astTree, depth) => {
+  const output = flattenDeep(astTree.map((node) => mapping[node.status](node, depth, makeDiff))).join('\n');
+  return `{\n${output}\n${makeTab(depth)}}`;
 };
-export default buildTreeView;
+const renderTree = (data) => makeDiff(data, 0);
+export default renderTree;
