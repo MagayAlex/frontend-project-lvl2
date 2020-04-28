@@ -8,8 +8,8 @@ const mapping = {
   json: (data) => buildJsonView(data),
 };
 export default (data, type) => {
-  if (!mapping[type]) {
-    throw new Error(`Unknown format type: '${type}'!`);
+  if (mapping[type]) {
+    return mapping[type](data);
   }
-  return mapping[type](data);
+  throw new Error(`Unknown format type: '${type}'!`);
 };
