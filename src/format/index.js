@@ -3,13 +3,14 @@ import buildPlainView from './plain.js';
 import buildJsonView from './json.js';
 
 const mapping = {
-  tree: (data) => buildTreeView(data),
-  plain: (data) => buildPlainView(data),
-  json: (data) => buildJsonView(data),
+  tree: buildTreeView,
+  plain: buildPlainView,
+  json: buildJsonView,
 };
 export default (data, type) => {
-  if (mapping[type]) {
-    return mapping[type](data);
+  const format = mapping[type];
+  if (!format) {
+    throw new Error(`Unknown format type: '${type}'!`);
   }
-  throw new Error(`Unknown format type: '${type}'!`);
+  return format(data);
 };

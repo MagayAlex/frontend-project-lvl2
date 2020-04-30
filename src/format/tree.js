@@ -1,7 +1,7 @@
 import { isObject, flattenDeep } from 'lodash';
 
 const tab = '    ';
-const makeTab = (count) => `${tab.repeat(count)}`;
+const makeTab = (count) => tab.repeat(count);
 const stringify = (nodeValue, tabSize) => {
   if (isObject(nodeValue)) {
     return `{\n${Object.entries(nodeValue).map(([key, value]) => `${makeTab(tabSize + 2)}${key}: ${value}`).join('\n')}\n${makeTab(tabSize + 1)}}`;
