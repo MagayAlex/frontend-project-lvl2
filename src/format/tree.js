@@ -10,10 +10,10 @@ const stringify = (nodeValue, depth) => {
   return nodeValue;
 };
 const mapping = {
-  nested: (node, depth, iter) => `${makeTab(depth + 1)}${node.key}: ${iter(node.children, depth + 1)}`,
+  nested: (node, depth, iter) => `${makeTab(depth)}    ${node.key}: ${iter(node.children, depth + 1)}`,
   changed: (node, depth) => [`${makeTab(depth)}  - ${node.key}: ${stringify(node.oldValue, depth)}`,
     `${makeTab(depth)}  + ${node.key}: ${stringify(node.newValue, depth)}`],
-  unchanged: (node, depth) => `${makeTab(depth + 1)}${node.key}: ${stringify(node.value, depth)}`,
+  unchanged: (node, depth) => `${makeTab(depth)}    ${node.key}: ${stringify(node.value, depth)}`,
   added: (node, depth) => `${makeTab(depth)}  + ${node.key}: ${stringify(node.value, depth)}`,
   deleted: (node, depth) => `${makeTab(depth)}  - ${node.key}: ${stringify(node.value, depth)}`,
 };
