@@ -2,17 +2,18 @@ import { isObject, flattenDeep } from 'lodash';
 
 const tab = '    ';
 const makeTab = (count) => tab.repeat(count);
-const stringify = (nodeValue, tabSize) => {
+const stringify = (nodeValue, depth) => {
   if (isObject(nodeValue)) {
-    return `{\n${Object.entries(nodeValue).map(([key, value]) => `${makeTab(tabSize + 2)}${key}: ${value}`).join('\n')}\n${makeTab(tabSize + 1)}}`;
+    const entries = Object.entries(nodeValue).map(([key, value]) => `${key}: ${value}`).join('\n');
+    return `{\n${makeTab(depth + 2)}${entries}\n${makeTab(depth + 1)}}`;
   }
   return nodeValue;
 };
 const mapping = {
-  nested: (node, depth, iter) => `${makeTab(depth)}${tab}${node.key}: ${iter(node.children, depth + 1)}`,
+  nested: (node, depth, iter) => `${makeTab(depth + 1)}${node.key}: ${iter(node.children, depth + 1)}`,
   changed: (node, depth) => [`${makeTab(depth)}  - ${node.key}: ${stringify(node.oldValue, depth)}`,
     `${makeTab(depth)}  + ${node.key}: ${stringify(node.newValue, depth)}`],
-  unchanged: (node, depth) => `${makeTab(depth)}${tab}${node.key}: ${stringify(node.value, depth)}`,
+  unchanged: (node, depth) => `${makeTab(depth + 1)}${node.key}: ${stringify(node.value, depth)}`,
   added: (node, depth) => `${makeTab(depth)}  + ${node.key}: ${stringify(node.value, depth)}`,
   deleted: (node, depth) => `${makeTab(depth)}  - ${node.key}: ${stringify(node.value, depth)}`,
 };
