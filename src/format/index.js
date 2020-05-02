@@ -7,10 +7,10 @@ const mapping = {
   plain: buildPlainView,
   json: buildJsonView,
 };
-export default (data, type) => {
-  const format = mapping[type];
+export default (data, formatName) => {
+  const format = mapping[formatName];
   if (!format) {
-    throw new Error(`Unknown format type: '${type}'!`);
+    throw new Error(`Unknown format type: '${formatName}'!`);
   }
   return format(data);
 };

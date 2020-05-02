@@ -19,10 +19,10 @@ const parsers = {
   yaml: yaml.load,
   ini: (data) => numberifyValues(ini.parse(data)),
 };
-export default (data, type) => {
-  const parse = parsers[type];
+export default (data, formatName) => {
+  const parse = parsers[formatName];
   if (!parse) {
-    throw new Error(`Unknown file type: '${type}'!`);
+    throw new Error(`Unknown file type: '${formatName}'!`);
   }
   return parse(data);
 };
