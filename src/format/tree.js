@@ -4,7 +4,7 @@ const tab = '    ';
 const makeTab = (count) => tab.repeat(count);
 const stringify = (nodeValue, depth) => {
   if (isObject(nodeValue)) {
-    const entries = Object.entries(nodeValue).map(([key, value]) => `${makeTab(depth + 2)}${key}: ${stringify(value, depth + 1)}`).join(`\n${makeTab(depth + 2)}`);
+    const entries = Object.entries(nodeValue).map(([key, value]) => `${makeTab(depth + 2)}${key}: ${stringify(value, depth + 1)}`).join('\n');
     return `{\n${entries}\n${makeTab(depth + 1)}}`;
   }
   return nodeValue;
