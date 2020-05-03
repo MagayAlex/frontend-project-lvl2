@@ -12,7 +12,7 @@ beforeAll(() => {
   resultPlain = readFile('resultPlain.txt');
   resultJson = readFile('resultJson.txt');
 });
-test.each(['json', 'yaml', 'ini'])('test %%%', (format) => {  
+test.each(['json', 'yaml', 'ini'])('test %%%', (format) => {
   const fileBefore = getFixturePath(`beforeTree.${format}`);
   const fileAfter = getFixturePath(`afterTree.${format}`);
   expect(genDiff(fileBefore, fileAfter, 'tree')).toEqual(resultTree);
